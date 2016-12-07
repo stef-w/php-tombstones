@@ -1,0 +1,12 @@
+{
+    "name": "stef-w/php-tombstones",
+    "description": "A PHP tombstone package that helps you with finding dead code",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Stef Wijnberg",
+            "email": "mail@stefw.nl"
+        }
+    ],
+    "require": {}
+}
