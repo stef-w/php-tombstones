@@ -8,5 +8,8 @@
             "email": "mail@stefw.nl"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {"StefW\\Tombstones\\": "src/"}
+    }
 }
