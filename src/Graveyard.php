@@ -39,11 +39,10 @@ class Graveyard
      *
      * @param        $file
      * @param        $line
-     * @param string $comment
      */
-    public function tombstone($file, $line, $comment = '')
+    public function tombstone($file, $line)
     {
-        $this->storage->openTombstone(new Tombstone($file, $line, $comment));
+        $this->storage->openTombstone(new Tombstone($file, $line));
     }
 
     /**
@@ -104,6 +103,7 @@ class Graveyard
      */
     public function getOpenedTombstones()
     {
-        return $this->storage->getOpenedTombstones();
+        $data =  $this->storage->getOpenedTombstones();
+        return array_values($data);
     }
 }

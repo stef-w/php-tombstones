@@ -13,21 +13,27 @@ class GraveyardTest extends \PHPUnit\Framework\TestCase
      */
     private $sut;
 
+    private $directory;
+
     public function setUp()
     {
         require_once  __DIR__ . '/../fixtures/RandomClass.php';
-        $directory    = realpath(__DIR__ . '/../fixtures/');
+        $this->directory    = realpath(__DIR__ . '/../fixtures/');
         $arrayStorage = new \StefW\Tombstones\Storage\ArrayStorage();
-        $this->sut    = new \StefW\Tombstones\Graveyard($directory, $arrayStorage);
+        $this->sut    = new \StefW\Tombstones\Graveyard($this->directory, $arrayStorage);
     }
 
     /**
-     *
+     * @test
      */
     public function it_can_set_a_tombstone()
     {
-        $this->sut->tombstone('RandomClass.php', 19);
-        $this->sut->tombstone('RandomClass.php', 24);
+        $testClass = new \RandomClass($this->sut);
+        $testClass->thisIsAnAliveMethod();
+
+        $tombstones = $testClass->graveyard->getOpenedTombstones();
+        $first = $tombstones[0]->toArray();
+        $this->assertEquals($first['line'], 24);
     }
 
     /**
