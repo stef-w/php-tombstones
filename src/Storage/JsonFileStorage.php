@@ -11,7 +11,7 @@ namespace StefW\Tombstones\Storage;
 
 use StefW\Tombstones\Tombstone;
 
-class JsonFile implements StorageInterface
+class JsonFileStorage implements StorageInterface
 {
 
     private $file;

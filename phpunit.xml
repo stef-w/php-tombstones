@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<phpunit verbose="true"
+         colors="true"
+         backupGlobals="false"
+         backupStaticAttributes="false">
+    <testsuites>
+        <testsuite name="unit">
+            <directory>./tests/Unit/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./src/</directory>
+        </whitelist>
+
+        <blacklist>
+            <directory>./vendor/</directory>
+        </blacklist>
+    </filter>
+</phpunit>

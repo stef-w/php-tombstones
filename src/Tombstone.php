@@ -12,13 +12,11 @@ class Tombstone
 {
     private $line;
     private $file;
-    private $comment;
 
-    public function __construct($file, $line, $comment = '')
+    public function __construct($file, $line)
     {
-        $this->file = $file;
-        $this->line = $line;
-        $this->comment = $comment;
+        $this->file    = $file;
+        $this->line    = $line;
     }
 
     public function getId()
@@ -29,15 +27,14 @@ class Tombstone
     public function toArray()
     {
         return [
-            'id' => $this->getId(),
-            'line' => $this->line,
-            'file' => $this->file,
-            'comment' => $this->comment
+            'id'      => $this->getId(),
+            'line'    => $this->line,
+            'file'    => $this->file
         ];
     }
 
     public static function fromArray($array)
     {
-        return new self($array['file'], $array['line'], $array['comment']);
+        return new self($array['file'], $array['line']);
     }
 }
